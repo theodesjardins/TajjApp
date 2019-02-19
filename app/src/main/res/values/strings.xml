@@ -7,4 +7,7 @@
     <string name="textPseudo">Nickname</string>
     <string name="signinSubmit">SUBMIT</string>
     <string name="textMail">Email</string>
+    <string name="buttonSignIn">Sign In</string>
+    <string name="submitButtonLogIn">SUBMIT</string>
+    <string name="passwordFieldLogIn">Password</string>
 </resources>
