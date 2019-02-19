@@ -16,5 +16,10 @@ class AccueilActivity : AppCompatActivity() {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
+
+        buttonSignIn.setOnClickListener{
+            val intent = Intent(this, InscriptionActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
