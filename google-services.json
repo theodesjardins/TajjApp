@@ -54,7 +54,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:259368840275:android:bb7a9b0c4cfb947d",
         "android_client_info": {
-          "package_name": "fr.isen.pons.tajjtest"
+          "package_name": "fr.isen.desjardins.tajjapp"
         }
       },
       "oauth_client": [
@@ -62,7 +62,7 @@
           "client_id": "259368840275-grakmtusmpk44sotcg9f33id5vfaom6g.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "fr.isen.pons.tajjtest",
+            "package_name": "fr.isen.desjardins.tajjapp",
             "certificate_hash": "ec52b04812b7829c9beb750aa7e79e69dfa0ae20"
           }
         },
