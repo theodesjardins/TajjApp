@@ -13,6 +13,9 @@ import android.view.View
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import fr.isen.desjardins.tajjapp.models.Member
 import kotlinx.android.synthetic.main.activity_inscription.*
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.FileOutputStream
@@ -24,11 +27,19 @@ class InscriptionActivity : AppCompatActivity() {
 
     private lateinit var mAuth: FirebaseAuth
 
+    // variables pour connexions à la base de données
+    private lateinit var database: FirebaseDatabase
+    private lateinit var myRef: DatabaseReference
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inscription)
 
         mAuth = FirebaseAuth.getInstance()
+
+        // initialisation de la connexion à la bd
+        database = FirebaseDatabase.getInstance()
+        myRef = database.getReference("members")
 
         signinSubmit.setOnClickListener{
             writeUser()
@@ -72,6 +83,11 @@ class InscriptionActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // update UI with the signed-in user's information
                     val user = mAuth.getCurrentUser()
+                    if(user != null){
+                        // envoyer le membre à la bd
+                        val member = Member(myRef.push().key,firstname,name,nickname,email)
+                        myRef.child(myRef.push().key.toString()).setValue(member)
+                    }
                     updateUI(user)
                 } else {
                     Toast.makeText(applicationContext, "Authentication failed!", Toast.LENGTH_SHORT).show()
@@ -129,7 +145,7 @@ class InscriptionActivity : AppCompatActivity() {
         if (user != null) {
             // utilisateur connecté
             // redirection vers Home
-            val intent = Intent(this, HomeActivity::class.java)
+            val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
         } else {
             // utilisateur non connecté
