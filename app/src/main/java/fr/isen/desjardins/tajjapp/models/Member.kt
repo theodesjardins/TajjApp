@@ -5,6 +5,6 @@ data class Member(
 	val firstname: String? = null,
 	val lastname: String? = null,
 	val pseudo: String? = null,
-	val email: String? = null
+	val email: String? = null) {
 
-)
+}
