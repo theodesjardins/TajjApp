@@ -1,6 +1,5 @@
-package fr.isen.desjardins.androidtoolbox2.Model
+package fr.isen.desjardins.tajjapp.Model
 
 class PictureModel{
-    var thumbnail: String = ""
     var medium: String = ""
     }

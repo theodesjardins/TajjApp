@@ -1,4 +1,4 @@
-package fr.isen.desjardins.tajjapp.adapters
+package fr.isen.desjardins.tajjapp.Adapters
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -7,14 +7,13 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.squareup.picasso.Picasso
-import fr.isen.desjardins.tajjapp.Model.UserModel
+import fr.isen.desjardins.tajjapp.Model.StatusModel
 import fr.isen.desjardins.tajjapp.R
 import kotlinx.android.synthetic.main.status_cell_view.view.*
-import kotlinx.android.synthetic.main.status_cell_view.view.*
 
-class UsersAdapter (val users : List<UserModel>?) : RecyclerView.Adapter<UsersAdapter.UserCellViewHolder> () {
+class StatusAdapter (val users : List<StatusModel>?) : RecyclerView.Adapter<StatusAdapter.UserCellViewHolder> () {
     override fun onBindViewHolder(viewHolder: UserCellViewHolder, index: Int) {
-        val user = users?.get(index) ?: UserModel()
+        val user = users?.get(index) ?: StatusModel()
         viewHolder.bind(user)
     }
 
@@ -33,7 +32,7 @@ class UsersAdapter (val users : List<UserModel>?) : RecyclerView.Adapter<UsersAd
         val text: TextView = view.textField
         val image: ImageView = view.userPicture
 
-        fun bind(user: UserModel){
+        fun bind(user: StatusModel){
             userName.text = "${user.name.first} ${user.name.last}"
             text.text = "${user.text.text}"
             Picasso.get().load(user.picture.medium).into(image)
