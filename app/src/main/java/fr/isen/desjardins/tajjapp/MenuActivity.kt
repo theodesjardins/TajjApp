@@ -23,5 +23,17 @@ class MenuActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        postButton.setOnClickListener{
+            val intent = Intent(this,PostActivity::class.java)
+            startActivity(intent)
+        }
+
+        profilButton.setOnClickListener{
+            val intent = Intent(this,ProfilActivity::class.java)
+            startActivity(intent)
+        }
+
+
+
     }
 }
