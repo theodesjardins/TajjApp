@@ -129,7 +129,7 @@ class InscriptionActivity : AppCompatActivity() {
         if (user != null) {
             // utilisateur connecté
             // redirection vers Home
-            val intent = Intent(this, HomeActivity::class.java)
+            val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
         } else {
             // utilisateur non connecté

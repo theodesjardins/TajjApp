@@ -24,7 +24,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         mAuth = FirebaseAuth.getInstance()
-        submitButtonLogIn.setOnClickListener {
+        submitButton.setOnClickListener {
             writeUser()
         }
     }
@@ -89,7 +89,7 @@ class LoginActivity : AppCompatActivity() {
         if (user != null) {
             // utilisateur connecté
             // redirection vers Home
-            val intent = Intent(this, HomeActivity::class.java)
+            val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
         } else {
             // utilisateur non connecté
