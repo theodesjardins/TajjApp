@@ -2,7 +2,6 @@ package fr.isen.desjardins.tajjapp
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import com.google.firebase.database.*
 import fr.isen.desjardins.tajjapp.models.Member
@@ -24,7 +23,32 @@ class MemberSignIn : AppCompatActivity() {
             myRef.child(myRef.push().key.toString()).setValue(newMember)
 
         }
+
+        val messageListener = object : ValueEventListener {
+
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    val member = dataSnapshot.getValue(Member::class.java)
+                    var membersList: ArrayList<Member?> = ArrayList()
+                   for(ds in dataSnapshot.children)
+                   {
+                       membersList.add(ds.getValue(Member::class.java))
+                   }
+
+                    Toast.makeText(this@MemberSignIn,"Helo", Toast.LENGTH_LONG).show()
+
+                }
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Failed to read value
+            }
+        }
+
+        myRef.addValueEventListener(messageListener)
     }
+
+
 
 
 }
