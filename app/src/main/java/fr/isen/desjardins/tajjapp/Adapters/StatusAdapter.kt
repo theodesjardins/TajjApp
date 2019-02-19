@@ -9,11 +9,12 @@ import android.widget.TextView
 import com.squareup.picasso.Picasso
 import fr.isen.desjardins.tajjapp.Model.StatusModel
 import fr.isen.desjardins.tajjapp.R
+import fr.isen.desjardins.tajjapp.models.Post
 import kotlinx.android.synthetic.main.status_cell_view.view.*
 
-class StatusAdapter (val users : List<StatusModel>?) : RecyclerView.Adapter<StatusAdapter.UserCellViewHolder> () {
+class StatusAdapter (val users : ArrayList<Post?>) : RecyclerView.Adapter<StatusAdapter.UserCellViewHolder> () {
     override fun onBindViewHolder(viewHolder: UserCellViewHolder, index: Int) {
-        val user = users?.get(index) ?: StatusModel()
+        val user = users?.get(index) ?: Post()
         viewHolder.bind(user)
     }
 
@@ -30,12 +31,10 @@ class StatusAdapter (val users : List<StatusModel>?) : RecyclerView.Adapter<Stat
 
         val userName: TextView = view.nameField
         val text: TextView = view.textField
-        val image: ImageView = view.userPicture
 
-        fun bind(user: StatusModel){
-            userName.text = "${user.name.first} ${user.name.last}"
-            text.text = "${user.text.text}"
-            Picasso.get().load(user.picture.medium).into(image)
+        fun bind(user: Post){
+            userName.text = "${user.pseudo}"
+            text.text = "Tu préfères ${user.choix1} ou ${user.choix2} ?"
         }
 
     }

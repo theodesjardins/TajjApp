@@ -3,7 +3,7 @@
                                              xmlns:app="http://schemas.android.com/apk/res-auto"
                                              xmlns:tools="http://schemas.android.com/tools"
                                              android:layout_width="match_parent"
-                                             android:layout_height="wrap_content">
+                                             android:layout_height="wrap_content" android:layout_marginTop="64dp">
 
     <TextView
             android:text="text"
@@ -11,14 +11,15 @@
             android:layout_height="wrap_content"
             android:id="@+id/nameField"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="16dp" android:textSize="24sp" app:layout_constraintStart_toEndOf="@+id/userPicture"
+            android:layout_marginTop="16dp" android:textSize="24sp"
+            app:layout_constraintStart_toEndOf="@+id/userPicture"
             android:layout_marginStart="24dp"/>
     <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp" app:srcCompat="@mipmap/ic_launcher_round"
             android:id="@+id/userPicture"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="32dp"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp"/>
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp" android:visibility="gone"/>
     <TextView
             android:text="TextView"
             android:layout_width="wrap_content"
@@ -41,6 +42,7 @@
             android:layout_height="47dp"
             android:id="@+id/button"
             android:layout_marginEnd="32dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="16dp"/>
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="@+id/nameField"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintTop_toTopOf="@+id/nameField"/>
 </android.support.constraint.ConstraintLayout>

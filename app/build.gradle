@@ -37,7 +37,7 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.71828'
 
     // Adel & Théo
-    implementation "com.google.firebase:firebase-auth:9.0.2"
+    implementation 'com.google.firebase:firebase-auth:9.0.2'
 
     // firebase
     implementation 'com.google.firebase:firebase-core:16.0.7'
@@ -54,6 +54,5 @@ dependencies {
 
     // realtime database
     implementation 'com.google.firebase:firebase-database:16.0.6'
-
 }
 apply plugin: 'com.google.gms.google-services'
